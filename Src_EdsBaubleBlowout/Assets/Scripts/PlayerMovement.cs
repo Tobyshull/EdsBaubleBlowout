@@ -24,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
 
     [SerializeField]
     private int boostsLeft;
+    [SerializeField]
+    private TMPro.TMP_Text boostsLeftText;
 
     private Rigidbody2D rb;
     private Vector2 currentVel;
@@ -82,5 +84,7 @@ public class PlayerMovement : MonoBehaviour
                 lastBoostRefresh = Time.time;
             }
         }
+
+        boostsLeftText.text = boostsLeft.ToString();
     }
 }
