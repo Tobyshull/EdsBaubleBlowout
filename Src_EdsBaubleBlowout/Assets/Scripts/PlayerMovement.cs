@@ -34,10 +34,38 @@ public class PlayerMovement : MonoBehaviour
     private float lastBoost;
     private float lastBoostRefresh;
 
-    Vector2 movementDir;
+    private Vector2 movementDir;
+    private Vector2 lastMovementDir = new Vector2(0, -1);
+    private Vector2 lastLastMovementDir = Vector2.zero;
+    private bool goingLeftRight = false;
+
+    [SerializeField]
+    private GameObject[] playerParts;
+    [SerializeField]
+    private GameObject[] forwardPlayerParts;
+    [SerializeField]
+    private GameObject[] backwardPlayerParts;
+    [SerializeField]
+    private GameObject[] leftPlayerParts;
+    [SerializeField]
+    private GameObject[] rightPlayerParts;
+
+    [SerializeField]
+    private Animator UpDownAnimator;
+    [SerializeField]
+    private Animator LeftRightAnimator;
+
 
     bool sprint;
     bool boost;
+
+    void ChangeAllPlayerParts(GameObject[] parts, bool activity)
+    {
+        for (int i = 0; i < parts.Length; i++)
+        {
+            parts[i].SetActive(activity);
+        }
+    }
 
     void Start()
     {
@@ -55,6 +83,85 @@ public class PlayerMovement : MonoBehaviour
 
         if(!boost)
             boost = Input.GetKeyDown(KeyCode.Space);
+
+        if (movementDir != Vector2.zero)
+        {
+            lastMovementDir = movementDir;
+        }
+
+        if (lastLastMovementDir != lastMovementDir)
+        {
+            ChangeAllPlayerParts(playerParts, false);
+            if (Mathf.Abs(movementDir.x) > Mathf.Abs(movementDir.y))
+            {
+                if (lastMovementDir.x > 0)
+                {
+                    ChangeAllPlayerParts(rightPlayerParts, true);
+                    goingLeftRight = true;
+                }
+                else if (lastMovementDir.x > 0)
+                {
+                    ChangeAllPlayerParts(leftPlayerParts, true);
+                    goingLeftRight = true;
+                }
+                else if (lastMovementDir.y > 0)
+                {
+                    ChangeAllPlayerParts(backwardPlayerParts, true);
+                    goingLeftRight = false;
+                }
+                else if (lastMovementDir.y < 0)
+                {
+                    ChangeAllPlayerParts(forwardPlayerParts, true);
+                    goingLeftRight = false;
+                }
+                else
+                {
+                    ChangeAllPlayerParts(forwardPlayerParts, true);
+                    goingLeftRight = false;
+                }
+            }
+            else
+            {
+                if (lastMovementDir.y > 0)
+                {
+                    ChangeAllPlayerParts(backwardPlayerParts, true);
+                    goingLeftRight = false;
+                }
+                else if (lastMovementDir.y < 0)
+                {
+                    ChangeAllPlayerParts(forwardPlayerParts, true);
+                    goingLeftRight = false;
+                }
+                else if (lastMovementDir.x < 0)
+                {
+                    ChangeAllPlayerParts(rightPlayerParts, true);
+                    goingLeftRight = true;
+                }
+                else if (lastMovementDir.x > 0)
+                {
+                    ChangeAllPlayerParts(leftPlayerParts, true);
+                    goingLeftRight = true;
+                }
+                else
+                {
+                    ChangeAllPlayerParts(forwardPlayerParts, true);
+                    goingLeftRight = false;
+                }
+            }
+            lastLastMovementDir = lastMovementDir;
+        }
+
+        if(rb.velocity.magnitude > 0.1f)
+        {
+            if (goingLeftRight)
+            {
+                LeftRightAnimator.SetTrigger("Running");
+            }
+            else
+            {
+                UpDownAnimator.SetTrigger("Running");
+            }
+        }
     }
 
     void FixedUpdate()

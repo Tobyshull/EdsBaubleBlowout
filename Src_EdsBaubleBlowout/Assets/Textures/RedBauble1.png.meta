@@ -1,31 +1,25 @@
 fileFormatVersion: 2
-guid: b10e9c24b9502d3428d2f9225ff2b408
+guid: 0871193d85f63b14786df11e049835fc
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1372297356048971817
-    second: BigBoxUI
+      213: 4219029897977595106
+    second: Forward
   - first:
-      213: 2017967328166558370
-    second: SmallBoxUI
+      213: -6587842315192950896
+    second: Sideways
   - first:
-      213: 501973282609801304
-    second: SmallBoxInsideUI
+      213: -720785902496264465
+    second: Forward_Angry
   - first:
-      213: -1144323030434393658
-    second: Lightning strike
+      213: 4261399395762625064
+    second: Sideways Angry
   - first:
-      213: 842433393653722749
-    second: Arrow
+      213: 7807927140099142478
+    second: Backwards
   - first:
-      213: -5008134335625873361
-    second: Clock
-  - first:
-      213: -2850441821102148331
-    second: Pig
-  - first:
-      213: 2114393434938675146
-    second: Heart
+      213: 2665643143219984122
+    second: Dead
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +63,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 85
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -88,7 +82,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +94,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,7 +106,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +118,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,76 +129,97 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BigBoxUI
+      name: Forward
       rect:
         serializedVersion: 2
-        x: 66
-        y: 696
-        width: 265
-        height: 293
+        x: 138
+        y: 965
+        width: 425
+        height: 499
       alignment: 9
-      pivot: {x: 0, y: 0}
-      border: {x: 24, y: 22, z: 28, w: 30}
+      pivot: {x: 0.49053064, y: 0.3118872}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d74e7e43de94fce0800000000000000
-      internalID: -1372297356048971817
+      spriteID: 2e405bdb6510d8a30800000000000000
+      internalID: 4219029897977595106
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SmallBoxUI
+      name: Sideways
       rect:
         serializedVersion: 2
-        x: 351
-        y: 923
-        width: 309
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 44, y: 5, z: 53, w: 11}
+        x: 567
+        y: 965
+        width: 280
+        height: 506
+      alignment: 9
+      pivot: {x: 0.5036436, y: 0.2963416}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2aa36b3e792410c10800000000000000
-      internalID: 2017967328166558370
+      spriteID: 09f13a671584394a0800000000000000
+      internalID: -6587842315192950896
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SmallBoxInsideUI
+      name: Forward_Angry
       rect:
         serializedVersion: 2
-        x: 351
-        y: 850
-        width: 308
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 32, y: 0, z: 29, w: 10}
+        x: 856
+        y: 971
+        width: 433
+        height: 500
+      alignment: 9
+      pivot: {x: 0.502356, y: 0.28165406}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 858a1bc7a0e57f600800000000000000
-      internalID: 501973282609801304
+      spriteID: feec9926a014ff5f0800000000000000
+      internalID: -720785902496264465
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lightning strike
+      name: Sideways Angry
       rect:
         serializedVersion: 2
-        x: 63
-        y: 463
-        width: 192
-        height: 192
+        x: 1301
+        y: 969
+        width: 305
+        height: 500
+      alignment: 9
+      pivot: {x: 0.5133805, y: 0.28777587}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82ade7e2c28832b30800000000000000
+      internalID: 4261399395762625064
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Backwards
+      rect:
+        serializedVersion: 2
+        x: 1267
+        y: 383
+        width: 447
+        height: 549
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,20 +227,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c1d8a6444c8e10f0800000000000000
-      internalID: -1144323030434393658
+      spriteID: e43bdb1ad545b5c60800000000000000
+      internalID: 7807927140099142478
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Arrow
+      name: Dead
       rect:
         serializedVersion: 2
-        x: 285
-        y: 452
-        width: 217
-        height: 217
+        x: 1605
+        y: 963
+        width: 396
+        height: 173
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -233,71 +248,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: d7e28a745bce0bb00800000000000000
-      internalID: 842433393653722749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Clock
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 273
-        width: 130
-        height: 130
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2835912b588f7ab0800000000000000
-      internalID: -5008134335625873361
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pig
-      rect:
-        serializedVersion: 2
-        x: 364
-        y: 276
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 515f94814423178d0800000000000000
-      internalID: -2850441821102148331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Heart
-      rect:
-        serializedVersion: 2
-        x: 565
-        y: 501
-        width: 165
-        height: 166
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: acf00f460a5d75d10800000000000000
-      internalID: 2114393434938675146
+      spriteID: af63599c0544ef420800000000000000
+      internalID: 2665643143219984122
       vertices: []
       indices: 
       edges: []
@@ -314,7 +266,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 

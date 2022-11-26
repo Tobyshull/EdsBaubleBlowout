@@ -1,31 +1,28 @@
 fileFormatVersion: 2
-guid: b10e9c24b9502d3428d2f9225ff2b408
+guid: 1eec3838242df50448dea15b233562ce
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -1372297356048971817
-    second: BigBoxUI
+      213: 5039044411778121718
+    second: ElfSheet3Split_Hat
   - first:
-      213: 2017967328166558370
-    second: SmallBoxUI
+      213: 8339048205150232956
+    second: ElfSheet3Split_Face1
   - first:
-      213: 501973282609801304
-    second: SmallBoxInsideUI
+      213: 5871316607204500338
+    second: ElfSheet3Split_Face2
   - first:
-      213: -1144323030434393658
-    second: Lightning strike
+      213: -7957052211992870014
+    second: ElfSheet3Split_Face3
   - first:
-      213: 842433393653722749
-    second: Arrow
+      213: 1664596319777552472
+    second: ElfSheet3Split_Face4
   - first:
-      213: -5008134335625873361
-    second: Clock
+      213: 2279382709969221020
+    second: ElfSheet3Split_Face5
   - first:
-      213: -2850441821102148331
-    second: Pig
-  - first:
-      213: 2114393434938675146
-    second: Heart
+      213: -726488523532415954
+    second: ElfSheet3Split_BackClothing
   externalObjects: {}
   serializedVersion: 11
   mipmaps:
@@ -69,7 +66,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 85
+  spritePixelsToUnits: 196
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -88,7 +85,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -100,7 +97,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -112,7 +109,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -124,7 +121,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 0
+    textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -135,76 +132,139 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: BigBoxUI
+      name: ElfSheet3Split_Hat
       rect:
         serializedVersion: 2
-        x: 66
-        y: 696
-        width: 265
-        height: 293
+        x: 47
+        y: 1196
+        width: 425
+        height: 262
       alignment: 9
-      pivot: {x: 0, y: 0}
-      border: {x: 24, y: 22, z: 28, w: 30}
+      pivot: {x: 0.33252805, y: 0.4777096}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 7d74e7e43de94fce0800000000000000
-      internalID: -1372297356048971817
+      spriteID: 6ffb37bc1384ee540800000000000000
+      internalID: 5039044411778121718
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SmallBoxUI
+      name: ElfSheet3Split_Face1
       rect:
         serializedVersion: 2
-        x: 351
-        y: 923
-        width: 309
-        height: 68
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 44, y: 5, z: 53, w: 11}
+        x: 46
+        y: 872
+        width: 340
+        height: 296
+      alignment: 9
+      pivot: {x: 0.5075147, y: 0.028949017}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 2aa36b3e792410c10800000000000000
-      internalID: 2017967328166558370
+      spriteID: c71a6d019204ab370800000000000000
+      internalID: 8339048205150232956
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: SmallBoxInsideUI
+      name: ElfSheet3Split_Face2
       rect:
         serializedVersion: 2
-        x: 351
-        y: 850
-        width: 308
-        height: 66
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 32, y: 0, z: 29, w: 10}
+        x: 389
+        y: 878
+        width: 328
+        height: 290
+      alignment: 9
+      pivot: {x: 0.48654827, y: 0.024209911}
+      border: {x: 0, y: 0, z: 0, w: 0}
       outline: []
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 858a1bc7a0e57f600800000000000000
-      internalID: 501973282609801304
+      spriteID: 273a640c85b1b7150800000000000000
+      internalID: 5871316607204500338
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Lightning strike
+      name: ElfSheet3Split_Face3
       rect:
         serializedVersion: 2
-        x: 63
-        y: 463
-        width: 192
-        height: 192
+        x: 720
+        y: 878
+        width: 314
+        height: 290
+      alignment: 9
+      pivot: {x: 0.49361268, y: 0.024209911}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 283cde4eb2fd29190800000000000000
+      internalID: -7957052211992870014
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElfSheet3Split_Face4
+      rect:
+        serializedVersion: 2
+        x: 1040
+        y: 873
+        width: 322
+        height: 296
+      alignment: 9
+      pivot: {x: 0.49252528, y: 0.04876008}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 85873ce8885d91710800000000000000
+      internalID: 1664596319777552472
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElfSheet3Split_Face5
+      rect:
+        serializedVersion: 2
+        x: 1368
+        y: 874
+        width: 315
+        height: 295
+      alignment: 9
+      pivot: {x: 0.49235955, y: 0.06626577}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c95f1ee7f7ef1af10800000000000000
+      internalID: 2279382709969221020
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: ElfSheet3Split_BackClothing
+      rect:
+        serializedVersion: 2
+        x: 83
+        y: 482
+        width: 284
+        height: 348
       alignment: 0
       pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -212,92 +272,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 6c1d8a6444c8e10f0800000000000000
-      internalID: -1144323030434393658
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Arrow
-      rect:
-        serializedVersion: 2
-        x: 285
-        y: 452
-        width: 217
-        height: 217
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: d7e28a745bce0bb00800000000000000
-      internalID: 842433393653722749
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Clock
-      rect:
-        serializedVersion: 2
-        x: 59
-        y: 273
-        width: 130
-        height: 130
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: f2835912b588f7ab0800000000000000
-      internalID: -5008134335625873361
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Pig
-      rect:
-        serializedVersion: 2
-        x: 364
-        y: 276
-        width: 168
-        height: 168
-      alignment: 0
-      pivot: {x: 0.5, y: 0.5}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 515f94814423178d0800000000000000
-      internalID: -2850441821102148331
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Heart
-      rect:
-        serializedVersion: 2
-        x: 565
-        y: 501
-        width: 165
-        height: 166
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: acf00f460a5d75d10800000000000000
-      internalID: 2114393434938675146
+      spriteID: e2cc375798efae5f0800000000000000
+      internalID: -726488523532415954
       vertices: []
       indices: 
       edges: []
@@ -314,7 +290,7 @@ TextureImporter:
     secondaryTextures: []
   spritePackingTag: 
   pSDRemoveMatte: 0
-  pSDShowRemoveMatteOption: 1
+  pSDShowRemoveMatteOption: 0
   userData: 
   assetBundleName: 
   assetBundleVariant: 
