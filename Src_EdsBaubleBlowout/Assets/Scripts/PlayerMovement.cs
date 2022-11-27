@@ -56,6 +56,14 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField]
     private Animator LeftRightAnimator;
 
+    [SerializeField]
+    private Camera cameraObj;
+    [SerializeField]
+    private float shootCoolDown;
+    [SerializeField]
+    private GameObject candyCaneProjectile;
+    private float lastShot = 0;
+
 
     bool sprint;
     bool boost;
@@ -142,6 +150,16 @@ public class PlayerMovement : MonoBehaviour
             {
                 UpDownAnimator.SetTrigger("Running");
             }
+        }
+
+        if (Input.GetMouseButtonDown(0))
+        {
+            Vector2 worldPosition = cameraObj.ScreenToWorldPoint(Input.mousePosition);
+            Vector2 dir = (worldPosition - (Vector2)transform.position).normalized;
+
+            GameObject inst = Instantiate(candyCaneProjectile);
+            inst.transform.position = transform.position;
+            inst.GetComponent<CandyCane>().direction = dir;
         }
     }
 
