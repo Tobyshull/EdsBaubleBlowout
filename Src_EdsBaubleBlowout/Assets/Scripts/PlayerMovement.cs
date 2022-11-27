@@ -31,7 +31,8 @@ public class PlayerMovement : MonoBehaviour
     private Vector2 currentVel;
 
     private int maxBoosts;
-    private float lastBoost;
+    [HideInInspector]
+    public float lastBoost;
     private float lastBoostRefresh;
 
     private Vector2 movementDir;
@@ -94,7 +95,7 @@ public class PlayerMovement : MonoBehaviour
             ChangeAllPlayerParts(playerParts, false);
             if (Mathf.Abs(movementDir.x) > Mathf.Abs(movementDir.y))
             {
-                if (lastMovementDir.x > 0)
+                if (lastMovementDir.x < 0)
                 {
                     ChangeAllPlayerParts(rightPlayerParts, true);
                     goingLeftRight = true;
@@ -103,16 +104,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     ChangeAllPlayerParts(leftPlayerParts, true);
                     goingLeftRight = true;
-                }
-                else if (lastMovementDir.y > 0)
-                {
-                    ChangeAllPlayerParts(backwardPlayerParts, true);
-                    goingLeftRight = false;
-                }
-                else if (lastMovementDir.y < 0)
-                {
-                    ChangeAllPlayerParts(forwardPlayerParts, true);
-                    goingLeftRight = false;
                 }
                 else
                 {
@@ -131,16 +122,6 @@ public class PlayerMovement : MonoBehaviour
                 {
                     ChangeAllPlayerParts(forwardPlayerParts, true);
                     goingLeftRight = false;
-                }
-                else if (lastMovementDir.x < 0)
-                {
-                    ChangeAllPlayerParts(rightPlayerParts, true);
-                    goingLeftRight = true;
-                }
-                else if (lastMovementDir.x > 0)
-                {
-                    ChangeAllPlayerParts(leftPlayerParts, true);
-                    goingLeftRight = true;
                 }
                 else
                 {

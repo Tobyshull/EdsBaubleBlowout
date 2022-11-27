@@ -7,19 +7,19 @@ using TMPro;
 public class PlayerStats : MonoBehaviour
 {
     [SerializeField]
-    private int pigs = 0;
+    public int pigs = 0;
     [SerializeField]
     private TMP_Text pigsText;
 
     [SerializeField]
-    private int health = 10;
+    public int health = 10;
     [SerializeField]
     private TMP_Text healthText;
     [SerializeField]
     private GameObject healingText;
 
     [SerializeField]
-    private int timeOfDay = 420;
+    public int timeOfDay = 420;
     [SerializeField]
     private TMP_Text timeOfDayText;
     // 1440 minutes in a day

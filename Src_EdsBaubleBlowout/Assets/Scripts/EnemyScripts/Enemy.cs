@@ -2,87 +2,222 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Enemy : MonoBehaviour
+public class IdleState : BaseState
 {
-    [SerializeField]
-    private float speed;
-    [SerializeField]
-    private float obstacleAvoidanceForce;
-    [SerializeField]
-    private float smoothing;
+    Enemy enemySM;
+    public IdleState(Enemy stateMachine) : base("Idle", stateMachine) {
+        enemySM = stateMachine;
+    }
 
-    [SerializeField]
-    private float playerCheckRange;
-
-    [SerializeField]
-    private Sprite[] sprites;
-    [SerializeField]
-    SpriteRenderer spriteRenderer;
-
-    private Transform player;
-    private List<Transform> obstacles = new List<Transform>();
-
-    private Animator anim;
-    private Rigidbody2D rb;
-
-    private Vector2 currentVel;
-
-    void Start()
+    public override void Enter()
     {
+        base.Enter();
+
+        enemySM.anim.SetBool("Running", false);
+        enemySM.anim.SetBool("Attacking", false);
+    }
+
+    public override void UpdateLogic()
+    {
+        base.UpdateLogic();
+        if (enemySM.PlayerCheck())
+        {
+            stateMachine.ChangeState(enemySM.movementState);
+        }
+    }
+}
+
+public class MovementState : BaseState
+{
+    Enemy enemySM;
+
+    Vector2 refVel;
+
+    public MovementState(Enemy stateMachine) : base("Movement", stateMachine) {
+        enemySM = stateMachine;
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        enemySM.anim.SetBool("Running", true);
+    }
+
+    public override void UpdatePhysics()
+    {
+        base.UpdatePhysics();
+
+        Transform player = enemySM.PlayerCheck();
+        if (player)
+        {
+            if(Vector2.Distance(player.position, enemySM.transform.position) <= enemySM.PlayerAttackRange)
+            {
+                stateMachine.ChangeState(enemySM.attackState);
+            }
+
+            Vector2 dir = (player.position - enemySM.transform.position);
+            enemySM.rb.velocity = Vector2.SmoothDamp(enemySM.rb.velocity, dir * enemySM.speed, ref refVel, enemySM.movementSmoothing);
+        } else
+        {
+            stateMachine.ChangeState(enemySM.idleState);
+        }
+    }
+
+    public override void Exit()
+    {
+        enemySM.anim.SetBool("Running", false);
+
+        base.Exit();
+    }
+}
+
+public class AttackState : BaseState
+{
+    Enemy enemySM;
+
+    float startTime;
+
+    Vector2 playerPositionOnStart;
+
+    public AttackState(Enemy stateMachine) : base("Attack", stateMachine) {
+        enemySM = stateMachine;
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        enemySM.anim.SetBool("Attacking", true);
+        enemySM.rb.velocity = Vector2.zero;
+        
+        startTime = Time.time;
+        playerPositionOnStart = enemySM.PlayerCheck().position;
+    }
+
+    public override void UpdateLogic()
+    {
+        base.UpdateLogic();
+
+        if(Time.time - startTime > enemySM.attackDelay)
+        {
+            enemySM.rb.AddForce((playerPositionOnStart - (Vector2)enemySM.transform.position).normalized * enemySM.attackForce);
+            stateMachine.ChangeState(enemySM.attackProcessState);
+        }
+    }
+
+    public override void Exit()
+    {
+        enemySM.anim.SetBool("Attacking", false);
+
+        base.Exit();
+    }
+}
+
+public class AttackProcessState : BaseState
+{
+    Enemy enemySM;
+
+    float startTime;
+    Vector2 refVel;
+
+    public AttackProcessState(Enemy _machine) : base("Attack Process", _machine)
+    {
+        enemySM = _machine;
+    }
+
+    public override void Enter()
+    {
+        base.Enter();
+
+        startTime = Time.time;
+    }
+
+    public override void UpdateLogic()
+    {
+        base.UpdateLogic();
+
+        enemySM.rb.velocity = Vector2.SmoothDamp(enemySM.rb.velocity, Vector2.zero, ref refVel, 0.65f);
+
+        if(Time.time - startTime >= enemySM.afterAttackDelay)
+        {
+            stateMachine.ChangeState(enemySM.idleState);
+        }
+    }
+}
+
+public class Enemy : StateMachine
+{
+    public float speed;
+    public float movementSmoothing;
+
+    public float PlayerScanRange;
+    public float PlayerAttackRange;
+
+    public float attackDelay;
+    public float afterAttackDelay;
+    public float attackForce;
+    public float attackKnockBackForce;
+
+    public int attackDamage;
+
+    [HideInInspector]
+    public Animator anim;
+
+    public IdleState idleState;
+    public MovementState movementState;
+    public AttackState attackState;
+    public AttackProcessState attackProcessState;
+
+    [HideInInspector]
+    public Rigidbody2D rb;
+
+    protected override BaseState GetInitialState()
+    {
+        return idleState;
+    }
+
+    private void Awake()
+    {
+        idleState = new IdleState(this);
+        movementState = new MovementState(this);
+        attackState= new AttackState(this);
+        attackProcessState = new AttackProcessState(this);
+
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
     }
 
-    private void FixedUpdate()
+    public Transform PlayerCheck()
     {
-        player = null;
-        obstacles.Clear();
+        Collider2D[] colls = Physics2D.OverlapCircleAll(transform.position, PlayerScanRange);
 
-        Collider2D[] collidersInArea = Physics2D.OverlapCircleAll(transform.position, playerCheckRange);
-        for(int i = 0; i < collidersInArea.Length; i++)
+        for(int i = 0; i < colls.Length; i++)
         {
-            if (collidersInArea[i].tag == "Player")
+            if (colls[i].tag == "Player")
             {
-                player = collidersInArea[i].transform;
-            } else if (collidersInArea[i].GetComponent<Enemy>())
-            {
-                obstacles.Add(collidersInArea[i].transform);
+                return colls[i].transform;
             }
         }
+
+        return null;
     }
 
-    void Update()
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (player)
+        if(collision.transform.tag == "Player")
         {
-            Vector2 dir = player.position - transform.position;
-            dir = dir.normalized;
-
-            rb.velocity = Vector2.SmoothDamp(rb.velocity, dir * speed, ref currentVel, smoothing);
-        }
-
-        anim.SetBool("Running", (rb.velocity.magnitude > 0.1f));
-
-        if(Mathf.Abs(rb.velocity.x) > Mathf.Abs(rb.velocity.y))
-        {
-            spriteRenderer.sprite = sprites[1];
-            spriteRenderer.flipX = (rb.velocity.x > 0);
-        } else
-        {
-            spriteRenderer.flipX = false;
-            if(rb.velocity.y < 0)
-            {
-                spriteRenderer.sprite = sprites[0];
-            } else
-            {
-                spriteRenderer.sprite = sprites[2];
-            }
+            collision.transform.GetComponent<Rigidbody2D>().AddForce(
+                (collision.transform.position - transform.position).normalized * attackKnockBackForce);
+            collision.transform.GetComponent<PlayerMovement>().lastBoost = Time.time;
+            collision.transform.GetComponent<PlayerStats>().health -= attackDamage;
         }
     }
 
     private void OnDrawGizmos()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, playerCheckRange);
+        Gizmos.DrawWireSphere(transform.position, PlayerScanRange);
+        Gizmos.DrawWireSphere(transform.position, PlayerAttackRange);
     }
 }
