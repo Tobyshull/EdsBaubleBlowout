@@ -172,6 +172,10 @@ public class Enemy : StateMachine
     [HideInInspector]
     public Rigidbody2D rb;
 
+    public int Health;
+    public bool killOnDamage;
+    public GameObject DeathPrefab;
+
     protected override BaseState GetInitialState()
     {
         return idleState;
@@ -186,6 +190,14 @@ public class Enemy : StateMachine
 
         anim = GetComponent<Animator>();
         rb = GetComponent<Rigidbody2D>();
+    }
+
+    public new void Update()
+    {
+        base.Update();
+
+        if (Health <= 0)
+            Die();
     }
 
     public Transform PlayerCheck()
@@ -211,7 +223,23 @@ public class Enemy : StateMachine
                 (collision.transform.position - transform.position).normalized * attackKnockBackForce);
             collision.transform.GetComponent<PlayerMovement>().lastBoost = Time.time;
             collision.transform.GetComponent<PlayerStats>().health -= attackDamage;
+
+            if (killOnDamage)
+            {
+                Die();
+            }
         }
+    }
+
+    private void Die()
+    {
+        if (DeathPrefab != null)
+        {
+            GameObject inst = Instantiate(DeathPrefab);
+            inst.transform.position = transform.position;
+        }
+
+        Destroy(gameObject);
     }
 
     private void OnDrawGizmos()

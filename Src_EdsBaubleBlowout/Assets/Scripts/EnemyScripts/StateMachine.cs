@@ -25,20 +25,20 @@ public class StateMachine : MonoBehaviour
 
     BaseState currentState;
 
-    void Start()
+    public void Start()
     {
         currentState = GetInitialState();
         if (currentState != null)
             currentState.Enter();
     }
 
-    void Update()
+    public void Update()
     {
         if (currentState != null)
             currentState.UpdateLogic();
     }
 
-    void LateUpdate()
+    public void LateUpdate()
     {
         if (currentState != null)
             currentState.UpdatePhysics();

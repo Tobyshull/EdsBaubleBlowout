@@ -22,6 +22,9 @@ public class PlayerStats : MonoBehaviour
     public int timeOfDay = 420;
     [SerializeField]
     private TMP_Text timeOfDayText;
+    [SerializeField]
+    RectTransform clock;
+
     // 1440 minutes in a day
     // 420 = 7am
     // 1 second = 2 minutes -> 720 seconds / day === 12 min / day
@@ -50,6 +53,8 @@ public class PlayerStats : MonoBehaviour
                     timeOfDay = 0;
                     Debug.Log("Midnight hit, handle here!");
                 }
+
+                clock.eulerAngles = new Vector3(0, 0, 360 * (timeOfDay / 1440.0f) - 150);
             }
         }
     }
