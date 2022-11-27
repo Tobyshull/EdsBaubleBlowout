@@ -11,6 +11,7 @@ public class Sleep : MonoBehaviour
     public void InitialFadeComplete()
     {
         PlayerPrefs.SetInt("Energy", 100);
+        PlayerPrefs.SetInt("Time of day", 420);
         fadeController.fading = false;
         fadeController.fadeFinishEvent.AddListener(() => SecondFadeFinished());
     }

@@ -20,4 +20,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Sleep.unity
     guid: d20ecdd2fd675ee488fc923a35910edc
+  - enabled: 1
+    path: Assets/Scenes/DeathScreen.unity
+    guid: a9577f262785fa44f9d9d47b84a0c829
   m_configObjects: {}

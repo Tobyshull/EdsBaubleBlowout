@@ -10,6 +10,7 @@ public class MenuScript : MonoBehaviour
         if(PlayerPrefs.GetInt("First Open") == 0)
         {
             PlayerPrefs.SetInt("First Open", 1);
+            PlayerPrefs.SetInt("Level", 0);
             PlayerPrefs.SetInt("Health", 10);
             PlayerPrefs.SetInt("Time of day", 420);
             PlayerPrefs.SetInt("Pigs", 0);

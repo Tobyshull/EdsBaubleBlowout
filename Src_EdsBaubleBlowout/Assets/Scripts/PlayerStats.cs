@@ -41,6 +41,14 @@ public class PlayerStats : MonoBehaviour
 
     public bool pauseTimeOfDay = false;
 
+    void SavePlayerPrefs(Scene current, Scene next)
+    {
+        PlayerPrefs.SetInt("Pigs", pigs);
+        PlayerPrefs.SetInt("Health", health);
+        PlayerPrefs.SetInt("Time of day", timeOfDay);
+        PlayerPrefs.SetInt("Energy", (int)energyLeft);
+    }
+
     void Start()
     {
         StartCoroutine(TimeOfDayTracker());
@@ -55,6 +63,8 @@ public class PlayerStats : MonoBehaviour
         energySlider.maxValue = 100;
         energySlider.minValue = 0;
         energySlider.wholeNumbers = true;
+
+        SceneManager.activeSceneChanged += SavePlayerPrefs;
     }
 
     IEnumerator TimeOfDayTracker()
