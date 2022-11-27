@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/MenuBackground.unity
+    path: Assets/Scenes/Menu.unity
     guid: b50e166664c3a844fa4541de2340255d
   - enabled: 1
     path: Assets/Scenes/SampleScene.unity
@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/JackShrine.unity
     guid: b0e19204144431a428818514c8870200
+  - enabled: 1
+    path: Assets/Scenes/Sleep.unity
+    guid: d20ecdd2fd675ee488fc923a35910edc
   m_configObjects: {}
